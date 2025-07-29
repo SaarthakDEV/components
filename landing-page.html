@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<link>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing page</title>
+    <link href="../Assets/css/all.css"></link>
+    <script src="https://kit.fontawesome.com/a39e44e3ba.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        *{
+            margin: 0;
+            outline: none;
+            box-sizing: border-box;
+            --primary: #25509E;
+        }
+
+        body{
+            font-family: 'Inter', sans-serif;
+
+        }
+
+        .wrapper{
+            position: relative;
+            height: 100vh;
+        }
+
+        header{
+            width: 70%;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        header ul{
+            list-style: none;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+        header ul li{
+            margin: 0 0.4rem;
+        }
+
+        header ul li a{
+            text-decoration: none;
+            letter-spacing: 1px;
+            font-size: 20px;
+            padding: 15px 20px;
+            border-radius: 20px;
+            transition: all ease 0.3s;
+        }
+
+        header ul li a:hover{
+            color: #fff;
+            background-color: var(--primary);
+        }
+
+        header ul li a.btn{
+            color: #fff;
+            background-color:var(--primary);
+            padding: 15px 40px;
+        }
+
+        header ul li a.btn:hover{
+            color: var(--primary);
+            background-color: #c1d7ff;
+        }
+
+        .submenu{
+            max-width: 200px;
+            position: absolute;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: -2px 2px 3px #333;
+            padding-left: 0;
+            margin-top: 15px;
+            opacity: 0;
+            transition: all ease 0.5s;
+            z-index: 1;
+            flex-direction: column;
+        }
+
+        ul li:hover .submenu{
+            opacity: 1;
+            margin: 20px 0;
+        }
+
+        .submenu li{
+            margin: 0;
+            width: 100%;
+
+        }
+
+        .submenu li a{
+            display: block;
+            font-size: 15px;
+            text-align: center;
+            border-radius: 0;
+        }
+
+        .submeny li:first-child a{
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+        .submeny li:last-child a{
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+
+        #home{
+            height: 650px;
+            background-color: #EBEBEB;
+        }
+
+        .slide-wrapper{
+            width: 70%;
+            height: 70vh;
+            /* border: 1px solid red; */
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+            margin: 0 auto;
+            position: relative;
+            top: 50px;
+        }
+
+        .slider{
+            margin-right: 10px;
+            height: 100%;
+            width: 10%;
+            border-radius: 60px;
+            overflow: hidden;
+            cursor: pointer;
+            position: relative;
+            transition: all ease-in-out 400ms;
+            background-position: center center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .pic-1{
+            background-image: url('./Assets/plant1.jpg');
+        }
+        .pic-2{
+            background-image: url('./Assets/plant2.jpg');
+        }
+        .pic-3{
+            background-image: url('./Assets/plant3.jpg');
+        }
+        .pic-4{
+            background-image: url('./Assets/plant4.jpg');
+        }
+        .pic-5{
+            background-image: url('./Assets/plant5.jpg');
+        }
+
+        .slider.active{
+            width: 50%;
+            border-radius: 50%;
+            animation: move-down 1.5s ease-in infinite alternate-reverse;
+        }
+
+        @keyframes move-down{
+            from{
+                transform: translateY(-15px);
+
+            }
+
+            to{
+                transform: translateY(0);
+            }
+        }
+
+        header .fa-bars{
+            font-size: 2rem;
+            cursor: pointer;
+            color: #333;
+            display: none;
+        }
+
+        @media (max-width: 850px) {
+            .slider .active{
+                border-radius: 20px;
+            }
+
+            header .fa-bars{
+                display: block;
+                z-index: 1;
+            }
+
+            nav{
+                /* position: fixed; */
+                height: 80%;
+                width: 70%;
+                /* top: -100%;
+                left: 0; */
+                box-shadow: 0 1rem 2rem #333;
+                font-weight: bold;
+                background-color: #fff;
+                z-index: 1;
+                transition: all eae-in 0.4s;
+                border: 1px solid red;
+            }
+
+            nav ul{
+                width: 100%;
+                position: absolute;
+                padding-left: 0;
+                flex-flow: column;
+                justify-content: center;
+                align-items: center;
+                margin: 4rem auto;
+            }
+
+            nav ul li{
+                margin: 1.5rem auto;
+            }
+
+            
+            nav ul li a{
+                font-size: 1rem;
+            }
+            .submenu{
+                position: absolute;
+                left: 0;
+                width: 150px;
+            }
+
+            .nav-toggle{
+                top: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <a href="" ><img src="../Assets/logo.svg" alt="logo" /></a>
+            <nav>
+                <ul>
+                    <li><a href="">Home</a></li>
+                    <li><a href="">Courses</a>
+                    <ul class="submenu">
+                        <li><a href="#">HTML</a></li>
+                        <li><a href="#">CSS</a></li>
+                        <li><a href="#">JavaScript</a></li>
+
+                    </ul>
+                </li>
+                    <li><a href="">Services</a></li>
+                    <li><a href="">About us</a></li>
+                    <li><a href="">Contact Us</a></li>
+                    <li><a href="" class="btn">Sign up</a></li>
+                </ul>
+            </nav>
+
+            <div>
+                <i class="fa fa-bars"></i>
+            </div>
+        </header>
+
+
+        <section id="home">
+
+            <div class="slide-wrapper">
+
+                <div class="slider pic-1"></div>
+                <div class="slider pic-2"></div>
+                <div class="slider pic-3"></div>
+                <div class="slider pic-4"></div>
+                <div class="slider pic-5"></div>
+            </div>
+
+        </section>
+    </div>
+
+
+    <script>
+        const ACTIVE_CLASS = 'active';
+        const IMAGES = document.querySelectorAll('.slider');
+
+        IMAGES[0].classList.add(ACTIVE_CLASS);
+
+        function removeActiveClass(){
+            const ele = document.querySelector(`.${ACTIVE_CLASS}`);
+            if(ele){
+                ele.classList.remove(ACTIVE_CLASS);
+            }
+        }
+
+        function addClass($event){
+            $event.stopPropagation();
+            removeActiveClass()
+            const target = $event.currentTarget;
+            console.log(target)
+            target.classList.add(ACTIVE_CLASS)
+        }
+        
+
+        IMAGES.forEach(img => {
+            img.addEventListener('click', addClass);
+        })
+
+        $(document).ready(function () {
+            $('.fa-bars').click(function () {
+                $(this).toggleClass('fa-times');
+                $('nav').toggleClass('nav-toggle');
+            })
+        })
+    </script>
+</body>
+</html>
