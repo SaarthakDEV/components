@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .hide{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="dynamic" class="hide" contenteditable="true">Saarthak</h1>
+    <h1 id="static">Saarthak</h1>
+    <button onclick=handleUpdate()>Update</button>
+    <button onclick=handleClick()>Done</button>
+    <script>
+        const ele1 = document.getElementById("dynamic");
+        const ele2 = document.getElementById("static");
+
+        const handleClick = () => {
+            console.log(ele1.textContent)
+        }
+
+        const handleUpdate = () => {
+            ele2.classList.add("hide")
+            ele1.classList.remove("hide")
+
+        }
+
+
+    </script>
+</body>
+</html>
